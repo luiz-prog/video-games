@@ -1,6 +1,6 @@
 # Projeto DevOps - Avaliação Trio
 
-Este projeto implementa uma aplicação full-stack com API NestJS, Frontend React e banco PostgreSQL, todos orquestrados via Docker Compose. O sistema gerencia uma lista de clientes com informações pessoais.
+Este projeto implementa uma aplicação full-stack com API NestJS, Frontend React e banco PostgreSQL, todos orquestrados via Docker Compose. O sistema serve para cadastro de video games.
 
 ## 📋 Sumário
 
@@ -68,11 +68,11 @@ docker compose down -v
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET | `/customers` | Lista todos os clientes |
-| GET | `/customers/:id` | Busca cliente por ID |
-| POST | `/customers` | Cria novo cliente |
-| PUT | `/customers/:id` | Atualiza cliente |
-| DELETE | `/customers/:id` | Remove cliente |
+| GET | `/customers` | Lista todos os video games |
+| GET | `/customers/:id` | Busca video game por ID |
+| POST | `/customers` | Cria novo video games |
+| PUT | `/customers/:id` | Atualiza video game |
+| DELETE | `/customers/:id` | Remove video game |
 
 ### Documentação Swagger
 Acesse: http://localhost:3000/api
@@ -84,12 +84,7 @@ Acesse: http://localhost:3000/api
 [
   {
     "id": 1,
-    "full_name": "João Silva Santos",
-    "email": "joao.silva@email.com",
-    "phone": "(11) 99999-9999",
-    "birth_date": "1990-05-15",
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
+    "full_name": "Playstation 6",
   }
 ]
 ```
@@ -97,10 +92,7 @@ Acesse: http://localhost:3000/api
 ### POST /customers
 ```json
 {
-  "full_name": "Maria Oliveira Costa",
-  "email": "maria.oliveira@email.com",
-  "phone": "(11) 88888-8888",
-  "birth_date": "1985-12-03"
+  "full_name": "Playstation 4",
 }
 ```
 
