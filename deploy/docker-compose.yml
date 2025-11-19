@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: devops_postgres
+    environment:
+      POSTGRES_DB: devops_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-data.sql:/docker-entrypoint-initdb.d/init-data.sql
+    networks:
+      - api-db-network
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    container_name: devops_api
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: devops_db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - api-db-network
+      - api-front-network
+    restart: unless-stopped
+
+  front:
+    build:
+      context: ../front
+      dockerfile: Dockerfile
+    container_name: devops_front
+    environment:
+      REACT_APP_API_URL: http://api:3000
+    ports:
+      - "3001:3000"
+    depends_on:
+      - api
+    networks:
+      - api-front-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  api-db-network:
+    driver: bridge
+  api-front-network:
+    driver: bridge
