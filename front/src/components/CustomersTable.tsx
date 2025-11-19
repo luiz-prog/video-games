@@ -69,8 +69,8 @@ const CustomersTable: React.FC<CustomersTableProps> = ({ customers, loading, err
     return (
       <div className="table-container">
         <div className="empty">
-          <h3>Nenhum cliente encontrado</h3>
-          <p>Não há clientes cadastrados no sistema.</p>
+          <h3>Nenhum Video Game encontrado</h3>
+          <p>Não há Video Game cadastrados no sistema.</p>
           <button className="refresh-btn" onClick={onRefresh}>
             Atualizar Lista
           </button>
@@ -86,12 +86,6 @@ const CustomersTable: React.FC<CustomersTableProps> = ({ customers, loading, err
           <tr>
             <th>ID</th>
             <th>Nome Completo</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Data de Nascimento</th>
-            <th>Idade</th>
-            <th>Criado em</th>
-            <th>Atualizado em</th>
           </tr>
         </thead>
         <tbody>

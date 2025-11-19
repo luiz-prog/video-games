@@ -1,14 +1,13 @@
 -- Script para popular o banco com dados de exemplo
 -- Este arquivo é executado automaticamente quando o container do PostgreSQL é criado
-
-INSERT INTO customers (full_name, email, phone, birth_date, "createdAt", "updatedAt") VALUES
-('Nintendo 64', NOW(), NOW()),
-('Playstatin 1', NOW(), NOW()),
-('Playstation 2', NOW(), NOW()),
-('Playstation 3', NOW(), NOW()),
-('Playstation 4', NOW(), NOW()),
-('Playstation 5', NOW(), NOW()),
-('Xbox 360', NOW(), NOW()),
-('Xbox one', NOW(), NOW()),
-('Xbox series x', NOW(), NOW()),
-('Xbox series s', NOW(), NOW()),
+INSERT INTO customers (full_name) VALUES
+('Nintendo 64'),
+('Playstation 1'),
+('Playstation 2'),
+('Playstation 3'),
+('Playstation 4'),
+('Playstation 5'),
+('Xbox 360'),
+('Xbox one'),
+('Xbox series x'),
+('Xbox series s');
